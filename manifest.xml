@@ -3,16 +3,13 @@
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
             xsi:type="TaskPaneApp">
 
-  <Id>HelloWorldWordAddIn</Id>
+  <Id>{00000000-0000-0000-0000-000000000001}</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Demo</ProviderName>
   <DefaultLocale>zh-CN</DefaultLocale>
   <DisplayName DefaultValue="Hello World"/>
-  <Description DefaultValue="Word Hello World 插件"/>
+  <Description DefaultValue="Word Hello World 插件 - 演示如何在 Word 中创建加载项"/>
   <SupportUrl DefaultValue="https://github.com/is13823168894/word"/>
-  <AppDomains>
-    <AppDomain>https://github.com</AppDomain>
-  </AppDomains>
 
   <Hosts>
     <Host Name="Word"/>
@@ -40,7 +37,6 @@
             <Description>Word Hello World 插件</Description>
             <LearnMoreUrl>https://github.com/is13823168894/word</LearnMoreUrl>
           </GetStarted>
-          <FunctionFile resid="FunctionFile"/>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
             <OfficeTab id="TabHome">
               <Group id="Group1">
@@ -62,8 +58,8 @@
                     <bt:Image size="80" resid="Icon80"/>
                   </Icon>
                   <Action xsi:type="ShowTaskpane">
-                    <TaskpaneClsid>{00000000-0000-0000-0000-000000000000}</TaskpaneClsid>
-                    <SourceLocation>{SourceLocation}</SourceLocation>
+                    <TaskpaneClsid>{00000000-0000-0000-0000-000000000001}</TaskpaneClsid>
+                    <SourceLocation DefaultValue="https://is13823168894.github.io/word/taskpane.html"/>
                   </Action>
                 </Control>
               </Group>
@@ -73,21 +69,14 @@
       </Host>
     </Hosts>
     <Resources>
-      <Resources>
-        <bt:Images>
-          <bt:Image id="Icon16" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-16.png"/>
-          <bt:Image id="Icon32" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-32.png"/>
-          <bt:Image id="Icon80" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-80.png"/>
-        </bt:Images>
-        <bt:Urls>
-          <bt:Url id="SourceLocation" DefaultValue="https://is13823168894.github.io/word/taskpane.html"/>
-          <bt:Url id="FunctionFile" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/taskpane.html"/>
-        </bt:Urls>
-        <bt:ShortStrings>
-          <bt:String id="Group1" DefaultValue="Hello World"/>
-          <bt:String id="ShowTaskpane1" DefaultValue="显示Hello World"/>
-        </bt:ShortStrings>
-      </Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://is13823168894.github.io/word/icon-16.png"/>
+        <bt:Image id="Icon32" DefaultValue="https://is13823168894.github.io/word/icon-32.png"/>
+        <bt:Image id="Icon80" DefaultValue="https://is13823168894.github.io/word/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="SourceLocation" DefaultValue="https://is13823168894.github.io/word/taskpane.html"/>
+      </bt:Urls>
     </Resources>
   </VersionOverrides>
 </OfficeApp>
