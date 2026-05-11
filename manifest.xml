@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/taskpaneapp/versionheaders"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:type="TaskPaneApp">
+
+  <Id>HelloWorldWordAddIn</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>Demo</ProviderName>
+  <DefaultLocale>zh-CN</DefaultLocale>
+  <DisplayName DefaultValue="Hello World"/>
+  <Description DefaultValue="Word Hello World 插件"/>
+  <SupportUrl DefaultValue="https://github.com/is13823168894/word"/>
+  <AppDomains>
+    <AppDomain>https://github.com</AppDomain>
+  </AppDomains>
+
+  <Hosts>
+    <Host Name="Word"/>
+  </Hosts>
+
+  <Requirements>
+    <Sets>
+      <Set Name="WordApi" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://is13823168894.github.io/word/taskpane.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneapp/v1/ov建模"
+                    xsi:type="VersionOverridesV1_0">
+    <Hosts>
+      <Host xsi:type="WordHost">
+        <DesktopFormFactor>
+          <GetStarted>
+            <Title>Hello World</Title>
+            <Description>Word Hello World 插件</Description>
+            <LearnMoreUrl>https://github.com/is13823168894/word</LearnMoreUrl>
+          </GetStarted>
+          <FunctionFile resid="FunctionFile"/>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="Group1">
+                <Label>Hello World</Label>
+                <Icon>
+                  <bt:Image size="16" resid="Icon16"/>
+                  <bt:Image size="32" resid="Icon32"/>
+                  <bt:Image size="80" resid="Icon80"/>
+                </Icon>
+                <Control xsi:type="Button" id="ShowTaskpane1">
+                  <Label>显示Hello World</Label>
+                  <Supertip>
+                    <Title>Hello World</Title>
+                    <Description>点击打开 Hello World 侧边栏</Description>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16"/>
+                    <bt:Image size="32" resid="Icon32"/>
+                    <bt:Image size="80" resid="Icon80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneClsid>{00000000-0000-0000-0000-000000000000}</TaskpaneClsid>
+                    <SourceLocation>{SourceLocation}</SourceLocation>
+                  </Action>
+                </Control>
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+    <Resources>
+      <Resources>
+        <bt:Images>
+          <bt:Image id="Icon16" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-16.png"/>
+          <bt:Image id="Icon32" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-32.png"/>
+          <bt:Image id="Icon80" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+          <bt:Url id="SourceLocation" DefaultValue="https://is13823168894.github.io/word/taskpane.html"/>
+          <bt:Url id="FunctionFile" DefaultValue="https://raw.githubusercontent.com/is13823168894/word/main/taskpane.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="Group1" DefaultValue="Hello World"/>
+          <bt:String id="ShowTaskpane1" DefaultValue="显示Hello World"/>
+        </bt:ShortStrings>
+      </Resources>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
